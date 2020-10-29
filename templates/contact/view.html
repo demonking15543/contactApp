@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contacts
+{% endblock title %}
+
+{% block content %}
+   <div class="row mt-4">
+       <aside class="col-sm-2"></aside>
+       <aside class="col-sm-8">
+        {% if messages %}
+        <ul class="messages list-group">
+            {% for message in messages %}
+            <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+       <article>
+        {% if contacts %}
+        <div class="card-title">Contacts List</div>
+        {% for contact in contacts  %}
+                       
+         <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#multiCollapseExample{{contact.id}}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+           {% if contact.name %}{{contact.name}}{% else%}{{contact.contact}}{% endif %}</a>
+       <div class="row">
+         <div class="col">
+           <div class="collapse multi-collapse" id="multiCollapseExample{{contact.id}}">
+             <div class="card card-body">
+                 <h6 class="card-text text-secondary">Contact info</h6>
+
+                <h5 class="card-text">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{contact.name}}</h4>
+                <h5 class="card-text">Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{contact.contact}}</h4>
+                <h5 class="card-text">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                {% if contact.email %}
+                {{contact.email}}
+                {% else %}
+                Nane
+                  
+                {% endif %}
+                   </h4>
+                <h5 class="card-text">Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{contact.location}}</h4>
+              
+                  <p>
+                    <a href="{% url 'contact-update' contact.id %}" class="primary-link">edit</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'contact-delete' contact.id %}" class="primary-link">delete</a>
+                  </p>
+
+             </div>
+           </div>
+         </div>
+         </div>
+         {% endfor %}
+        
+            
+       {% endif %}
+     
+       </article>
+
+       </aside>
+       <aside class="col-sm-2"></aside>
+ 
+       
+
+       
+
+
+   </div>
+   {% endblock content %}
+    
+
+    

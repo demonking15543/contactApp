@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Contact Create
+    
+{% endblock title %}
+
+
+{% block content %}
+    <div class="row mt-5">
+        <aside class="col md-3"></aside>
+        <aside class="col md-6">
+            <article class="card card-body">
+                <h4>Contact Create Form</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                <p>{{form|crispy}}</p>
+                <button type="submit" class="btn btn-secondary">Create</button>
+                </form>
+            </article>
+        </aside>
+        <aside class="col md-3"></aside>
+
+    </div>
+{% endblock content %}
+        

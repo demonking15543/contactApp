@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Profile
+{% endblock title %}
+    
+    {% block content %}
+      <div class="row mt-5">
+          <aside class="col-md-3"></aside>
+          <aside class="col-md-6">
+            {% if messages %}
+<ul class="messages list-group">
+    {% for message in messages %}
+    <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+              <article class="card card-body">
+              <h4 class="card-title">User Profile</h4>
+              <p class="card-text">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.first_name}}&nbsp;&nbsp;{{user.last_name}}</p>
+              <p class="card-text">Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{profile.contact}}</p>
+              <p class="card-text">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  
+                
+                {% if contact.email %}
+                {profile.email}}
+                {% else %}
+                    None
+                {% endif %}
+                    </p>
+              <p class="card-text">City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{profile.city}}</p>
+              <p class="card-text">Country&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{profile.country}}</p>
+
+
+              <a href="{% url 'profile-update' %}" class="link-secondary">Edit</a>
+              </article>
+          </aside>
+          <aside class="col-md-3"></aside>
+
+      </div>
+    {% endblock content %}
+        

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Login Page
+{% endblock title %}
+    
+{% block content %}
+
+<div class="row mt-5">
+    <aside class="col-sm-4"></aside>
+    <aside class="col-sm-4">
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+please login with an account that has access.</p>
+{% else %}
+{% if messages %}
+<ul class="messages list-group">
+    {% for message in messages %}
+    <li{% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endif %}
+{% endif %}
+
+        <article class="card card-body">
+            <h4>Sign In</h4>
+            <form  method="post">
+
+                <p>{% csrf_token %}
+                {{form|crispy}}
+                </p>
+                <input type="submit"  class="btn btn-success" value="login">
+              <input type="hidden" name="next" value="{{ next }}">
+
+            </form>
+            {# Assumes you setup the password_reset view in your URLconf #}
+          <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+        </article>
+    </aside>  
+    <aside class="col-sm-4"></aside>
+</div>
+
+
+{% endblock %}
+
