@@ -1,9 +1,9 @@
-# DC
+# CD
 
 <h4 align="center">A web app based on <a href="https://www.djangoproject.com/" target="_blank">Django</a>.</h4>
 
-Dc is a web-based  app :computer: which runs on the server.
-Dc helps you to organize your contact at one place :rocket: by creating perfect contact saving solution.
+CD is a web-based  app :computer: which runs on the server.
+CD helps you to organize your contact at one place :rocket: by creating perfect contact saving solution.
 It has the best sounds for getting work done :raised_hands:.
 
 ### For developers
