@@ -1,6 +1,6 @@
 # DC
 
-<h4 align="center">A web app based on <a href="https://www.djangoproject.com/" target="_blank">Electron</a>.</h4>
+<h4 align="center">A web app based on <a href="https://www.djangoproject.com/" target="_blank">Django</a>.</h4>
 
 Dc is a web-based  app :computer: which runs on the server.
 Dc helps you to organize your contact at one place :rocket: by creating perfect contact saving solution.
@@ -51,6 +51,6 @@ saving contact will be available in your contact list
 - [Django](https://djangoproject.com)
 
 ## License
-MIT  © [Demonking15543](http://akashnimare.in)
+MIT  © [Demonking15543]
 
 
